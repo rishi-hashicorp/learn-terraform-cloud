@@ -2,7 +2,7 @@ provider "google" {
 
   project = var.project
   region  = var.region
-  zone    = var.zome
+  zone    = var.zone
 }
 
 resource "google_compute_instance" "vm_instance" {
