@@ -1,13 +1,13 @@
 provider "google" {
 
-  project = "hc-0ea6eeb77ca64b1896879483e05"
-  region  = "us-central1"
-  zone    = "us-central1-a"
+  project = var.project
+  region  = var.region
+  zone    = var.zome
 }
 
 resource "google_compute_instance" "vm_instance" {
-  name         = "terraform-instance"
-  machine_type = "e2-micro"
+  name         = var.vm_name
+  machine_type = var.machine_type
 
   boot_disk {
     initialize_params {

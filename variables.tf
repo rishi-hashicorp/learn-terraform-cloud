@@ -1,15 +1,25 @@
 variable "region" {
-  description = "AWS region"
-  default     = "us-west-1"
+  description = "GCP region"
+  default     = "us-central1"
 }
 
-variable "instance_type" {
-  description = "Type of EC2 instance to provision"
-  default     = "t2.micro"
+variable "zone" {
+  description = "GCP zone"
+  default     = "us-central1-a"
 }
 
-variable "instance_name" {
-  description = "EC2 instance name"
+variable "project" {
+  description = "GCP Project ID"
+  default     = "hc-0ea6eeb77ca64b1896879483e05"
+}
+
+variable "machine_type" {
+  description = "Type of VM instance to provision"
+  default     = "e2-micro"
+}
+
+variable "vm_name" {
+  description = "VM instance name"
   default     = "Provisioned by Terraform"
 }
 
