@@ -1,28 +1,23 @@
-provider "aws" {
-  region = var.region
+provider "google" {
+
+  project = "hc-0ea6eeb77ca64b1896879483e05"
+  region  = "us-central1"
+  zone    = "us-central1-a"
 }
 
-data "aws_ami" "ubuntu" {
-  most_recent = true
+resource "google_compute_instance" "vm_instance" {
+  name         = "terraform-instance"
+  machine_type = "e2-micro"
 
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-11"
+    }
   }
 
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["099720109477"] # Canonical
-}
-
-resource "aws_instance" "ubuntu" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = var.instance_type
-
-  tags = {
-    Name = var.instance_name
+  network_interface {
+    network = "default"
+    access_config {
+    }
   }
 }

@@ -1,8 +1,4 @@
-output "instance_ami" {
-  value = aws_instance.ubuntu.ami
-}
-
-output "instance_arn" {
-  value = aws_instance.ubuntu.arn
+output "id" {
+  value = google_compute_instance.vm_instance.name
 }
 
