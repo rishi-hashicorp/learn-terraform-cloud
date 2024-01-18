@@ -20,6 +20,6 @@ variable "machine_type" {
 
 variable "vm_name" {
   description = "VM instance name"
-  default     = "demoinstance"
+  default     = "demoinstance-vcs"
 }
 
