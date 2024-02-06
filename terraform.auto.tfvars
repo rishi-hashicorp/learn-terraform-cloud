@@ -1,1 +1,1 @@
-machine_type = "e2-small"
+instancetype = "t2.micro"
