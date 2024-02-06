@@ -1,23 +1,23 @@
-provider "google" {
-
-  project = var.project
-  region  = var.region
-  zone    = var.zone
-}
-
-resource "google_compute_instance" "vm_instance" {
-  name         = var.vm_name
-  machine_type = var.machine_type
-
-  boot_disk {
-    initialize_params {
-      image = "debian-cloud/debian-11"
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.16"
     }
   }
 
-  network_interface {
-    network = "default"
-    access_config {
-    }
+  required_version = ">= 1.2.0"
+}
+
+provider "aws" {
+  region  = var.region
+}
+
+resource "aws_instance" "app_server" {
+  ami           = "ami-830c94e3"
+  instance_type = var.instancetype
+
+  tags = {
+    Name = "ExampleAppServerInstance"
   }
 }
