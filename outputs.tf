@@ -1,4 +1,4 @@
 output "id" {
-  value = google_compute_instance.vm_instance.name
+  value = aws_instance.app_server.name
 }
 
