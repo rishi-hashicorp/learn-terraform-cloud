@@ -1,1 +1,1 @@
-instancetype = "t2.medium"
+instancetype = "t2.micro"
