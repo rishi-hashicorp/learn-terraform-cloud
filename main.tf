@@ -47,7 +47,7 @@ data "aws_ebs_volume" "demo" {
 
   filter {
     name = "volume-id"
-    values = [aws_instance.app_server.root_block_device.volume_id]
+    values = [aws_instance.app_server.root_block_device[0].volume_id]
   }
 
   lifecycle {
