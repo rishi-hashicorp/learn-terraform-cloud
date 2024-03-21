@@ -43,6 +43,25 @@ resource "aws_instance" "app_server" {
   }
 }
 
+data "aws_ebs_volume" "demo" {
+
+  filter {
+    name = "volume-id"
+    values = [aws_instance.app_server.root_block_device.volume_id]
+  }
+
+  lifecycle {
+    postcondition {
+      condition     = self.encrypted
+      error_message = "The server's root volume is not encrypted."
+    }
+  }
+}
+
+output "api_base_url" {
+  value = "https://${aws_instance.example.private_dns}:8433/"
+}
+
 check "health_check" {
   data "http" "terraform_io" {
     url = "https://www.terraform.io"
