@@ -37,7 +37,6 @@ resource "aws_instance" "app_server" {
       error_message = "EC2 instance must be in a VPC that has public DNS hostnames enabled."
     }
   }
-}
 
   tags = {
     Name = "ExampleAppServerInstance"
