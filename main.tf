@@ -59,7 +59,7 @@ data "aws_ebs_volume" "demo" {
 }
 
 output "api_base_url" {
-  value = "https://${aws_instance.example.private_dns}:8433/"
+  value = "https://${aws_instance.app_server.private_dns}:8433/"
 }
 
 check "health_check" {
