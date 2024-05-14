@@ -12,7 +12,7 @@ data "aws_ami" "demo" {
 
   filter {
     name   = "image-id"
-    values = ["ami-0277155c3f0ab2930"]
+    values = ["ami-0bb84b8ffd87024d8"]
   }
 }
 
