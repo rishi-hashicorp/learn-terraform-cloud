@@ -25,7 +25,7 @@ resource "aws_instance" "app_server" {
   instance_type = var.instancetype
 
   lifecycle {
-    # The AMI ID must refer to an AMI that contains an operating system
+    # The AMI ID must refer to an AMI that contains an OS
     precondition {
       condition     = data.aws_ami.demo.architecture == "x86_64"
       error_message = "The selected AMI must be for the x86_64 architecture."
